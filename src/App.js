@@ -20,7 +20,7 @@ class App extends Component {
           <div className="container">
             <h3>Search the movies you want it!</h3>
             <form id="search">
-              <input className="form-control" id="searchTxt" placeholder="Amor con Frijoles"/>
+              <input className="form-control" id="searchTxt" placeholder="Amor Con Frijoles"/>
             </form>
           </div>
         </div>
