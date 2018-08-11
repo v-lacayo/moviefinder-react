@@ -25,6 +25,12 @@ class App extends Component {
           </div>
         </div>
 
+        <div className="container">
+          <div className="row" id="movies">
+
+          </div>
+        </div>
+
       </div>
     );
   }
