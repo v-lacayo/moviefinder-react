@@ -15,6 +15,7 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); 
+    this.movieSelect = this.movieSelect.bind(this);
   }
 
 
@@ -34,17 +35,21 @@ class App extends Component {
       });
   }
 
+  movieSelect(id){
+    console.log('Id pelicula'+ id);
+  }
+
   render() {
-    const output = this.state.movies.map((movie, i) =>{ 
+    const output = this.state.movies.map((movie, index) =>{ 
         return(
             <div className="col-md-3">
               <div className="text-center">
                 <img src={movie.Poster} alt="Poster"/>
-                <h5>{movie.Title}</h5>
-                <a onClick="movieSelect({movie.imdbID})" className="btn btn-primary">Movie Details</a>
+                <h5> {movie.Title} </h5>
+                <a onClick={this.movieSelect(movie.imdbID)} className="btn btn-primary">Movie Details</a>
               </div>
             </div>
-          )        
+          )   
       })
     return (
       <div className="App">
