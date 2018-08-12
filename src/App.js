@@ -36,8 +36,7 @@ class App extends Component {
   }
 
   movieSelect(id){
-    console.log('Id pelicula: '+ id)
-    //window.location ='//www.imdb.com/title/';
+    window.open('//www.imdb.com/title/'+id);
   }
 
   render() {
@@ -46,9 +45,8 @@ class App extends Component {
             <div className="col-md-3">
               <div className="text-center">
                 <img src={movie.Poster} alt="Poster"/>
-                <h5> {movie.Title} </h5>
+                <h5>{movie.Title} </h5>
                 <button key={index} onClick={() =>this.movieSelect(movie.imdbID)} className="btn btn-success"> Movie Details </button>
-
               </div>
             </div>
           )   
