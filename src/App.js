@@ -23,29 +23,36 @@ class App extends Component {
     this.setState({value: e.target.value});
   }
 
+  // To Handle request using axios
   handleSubmit(e){
     e.preventDefault();
     let search = this.state.value;
-    //console.log('Buscar: '+ this.state.value);
     axios.get('//www.omdbapi.com?s='+ search +'&apikey=2ca8ae02')
       .then((response) =>{
         console.log(response);
         let movies = response.data.Search;
-        this.setState({movies: movies})                
+        if (movies) {
+          this.setState({movies: movies})
+        }else{
+          alert('No Value Data');
+        }
+                        
       });
   }
 
+  //To redirect external url
   movieSelect(id){
     window.open('//www.imdb.com/title/'+id);
   }
 
   render() {
+    //To insert data request from movies state into output variable
     const output = this.state.movies.map((movie, index) =>{ 
-        return(
+        return(     
             <div className="col-md-3">
               <div className="text-center">
                 <img src={movie.Poster} alt="Poster"/>
-                <h5>{movie.Title} </h5>
+                <h5>{movie.Title} - {movie.Year} </h5>
                 <button key={index} onClick={() =>this.movieSelect(movie.imdbID)} className="btn btn-success"> Movie Details </button>
               </div>
             </div>
@@ -58,8 +65,9 @@ class App extends Component {
             <div className="navbar-header">
               <a className="navbar-brand" href="index.html">
                 <img src={logo} className="App-logo" alt="logo" title="movieFinder" />
-              </a>
+              </a>              
             </div>
+            <h2>movieFinder</h2>
           </div>
         </nav>
 
@@ -73,8 +81,8 @@ class App extends Component {
         </div>
 
         <div className="container">
-          <div className="row" id="movies">
-          { output }
+          <div className="row" id="movies">          
+            { output }
           </div>
         </div>
 
