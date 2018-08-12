@@ -16,3 +16,15 @@
   margin-bottom: 5%;
 }
 
+#movies img{
+  width: 100%;
+  height: auto;
+}
+
+@media(min-width: 960px;){
+  #movies .col-md-3{
+    height: 240px;
+    width: auto;
+  }
+}
+
